@@ -1,8 +1,8 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable require-jsdoc */
 /* eslint-disable linebreak-style */
+import root from '../root.js';
 import ImageSet from './imgs.js';
-
 export default class Search extends ImageSet {
 	constructor(box, arr) {
 		super(box, arr);
@@ -29,7 +29,7 @@ export default class Search extends ImageSet {
 			img.addEventListener('load', () => {
 				this.imgList.push(img);
 			});
-			img.src = `/图片/${packName}/1.jpg`;
+			img.src = `/${root}/${packName}/1.jpg`;
 		}
 	}
 }

@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"description": "",
 	"main": "js/index.js",
-	"type": "commonjs",
+	"type": "module",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "http-server -c-1 -o -s"
@@ -17,6 +17,8 @@
 		"eslint-config-google": "^0.14.0"
 	},
 	"dependencies": {
-		"@material-ui/core": "^4.12.2"
+		"@material-ui/core": "^4.12.2",
+		"cheerio": "^1.0.0-rc.10",
+		"request": "^2.88.2"
 	}
 }

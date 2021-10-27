@@ -1,6 +1,7 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable require-jsdoc */
 // eslint-disable-next-line linebreak-style
+import root from '../root.js';
 export default class Pack {
 	constructor(name) {
 		this.name = encodeURIComponent(name);
@@ -25,7 +26,7 @@ export default class Pack {
 			img.alt = '';
 			img.className = 'inner-img';
 			try {
-				img.src = `/图片/${this.name}/${i}.jpg`;
+				img.src = `/${root}/${this.name}/${i}.jpg`;
 			} catch (e) {
 				break;
 			}

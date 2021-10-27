@@ -1,6 +1,7 @@
 /* eslint-disable no-empty */
 /* eslint-disable linebreak-style */
 /* eslint-disable require-jsdoc */
+import root from '../root.js';
 export default class ImageSet {
 	constructor(box, arr) {
 		this.box = box;
@@ -15,13 +16,17 @@ export default class ImageSet {
 	 * @param {number} index :index of requested pack in the list
 	 * @returns {string} name of the pack
 	 */
+	async myFetch() {
+		let response = await fetch('./1.jpg');
+		return await response.blob();
+	}
 	get(index) {
 		let url = `http://localhost:8081/?index=${index}`;
 		const xhr = new XMLHttpRequest();
 		xhr.open('GET', url, false);
 		xhr.send(null);
 		const res = xhr.getResponseHeader('content');
-		return unescape(res);
+		return decodeURIComponent(res);
 	}
 	/**
 	 * @function
@@ -30,7 +35,7 @@ export default class ImageSet {
 	 */
 	preload() {
 		for (let i = 0; i < 20; ++i) {
-			const packName = this.get(this.index++);
+			let packName = this.get(this.index++);
 			if (packName === 'too-long') {
 				return;
 			}
@@ -40,7 +45,13 @@ export default class ImageSet {
 			img.addEventListener('load', () => {
 				this.imgList.push(img);
 			});
-			img.src = `/图片/${packName}/1.jpg`;
+			if (packName.includes('YeYe')) {
+				console.log(packName);
+			}
+			img.src = `/${root}/${packName}/1.jpg`;
+			if (packName.includes('YeYe')) {
+				console.log(img.src);
+			}
 		}
 	}
 	addOneImg() {

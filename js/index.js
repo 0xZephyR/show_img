@@ -29,7 +29,6 @@ search.addEventListener('keydown', ({ keyCode }) => {
 		searchContainer.style.display = 'flex';
 		Searcher.getResult(search.value);
 		Searcher.addImgs();
-		console.log(Searcher);
 	}
 });
 search.addEventListener('change', () => {
