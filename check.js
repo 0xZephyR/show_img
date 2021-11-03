@@ -31,3 +31,6 @@ console.log(fileList.length);
 for (let file of fileList) {
 	fs.rmdirSync(root + '/' + file);
 }
+
+console.log('finish');
+process.exit(0);
